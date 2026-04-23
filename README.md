@@ -118,7 +118,7 @@ src/main/
 
 ## 📸 Screenshots
 
-> *Coming soon — add screenshots here to showcase the UI.*
+> *Coming soon*
 
 ---
 
