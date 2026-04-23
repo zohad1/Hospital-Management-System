@@ -1,5 +1,9 @@
 # 🏥 Hospital Management System
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-teal.svg)](https://opensource.org/licenses/MIT)
+[![Java](https://img.shields.io/badge/Java-17-orange.svg)](https://adoptium.net/)
+[![JavaFX](https://img.shields.io/badge/JavaFX-17.0.6-blue.svg)](https://openjfx.io/)
+
 A **JavaFX desktop application** for managing hospital operations — from patient appointments and doctor schedules to ward management and admin controls.
 
 ---
@@ -110,6 +114,11 @@ src/main/
 
 > Credentials are stored in the MySQL database. New patients can register via the **Sign Up** screen.
 
+---
+
+## 📸 Screenshots
+
+> *Coming soon — add screenshots here to showcase the UI.*
 
 ---
 
@@ -119,3 +128,10 @@ src/main/
 - The `mvnw` wrapper means you **don't need Maven installed globally** — it downloads the correct version automatically on first run.
 - If you run into JavaFX module errors, make sure you're using **Java 17** and not a higher version, as JavaFX compatibility can vary.
 
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for full details.
+
+You're free to use, copy, modify, and distribute this project, as long as you include the original copyright notice. Built as an OOP course project — feel free to fork and learn from it.
