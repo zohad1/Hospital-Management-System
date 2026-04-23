@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="560.0" prefWidth="860.0" styleClass="dash-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.AppointmentPatientController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="55" styleClass="top-bar" spacing="14">
+            <Button fx:id="backButton" text="← Back" styleClass="btn-back" onAction="#handleBack"/>
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Book Appointment" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <VBox styleClass="content-area" spacing="16">
+
+            <VBox spacing="4">
+                <Label text="Book an Appointment" styleClass="section-label"/>
+                <Label text="Select your doctor and fill in your medical details"
+                       styleClass="section-sub"/>
+            </VBox>
+
+            <!-- Form Card -->
+            <VBox styleClass="action-panel" spacing="14">
+
+                <!-- Step 1: Doctor Selection -->
+                <Label text="STEP 1 — SELECT YOUR DOCTOR" styleClass="form-section-title"/>
+                <HBox spacing="14">
+                    <ComboBox fx:id="departmentComboBox" prefHeight="40" prefWidth="380"
+                              onAction="#handleDepartmentSelection"
+                              promptText="Select Department" styleClass="form-combo"
+                              HBox.hgrow="ALWAYS"/>
+                    <ComboBox fx:id="doctorComboBox" prefHeight="40" prefWidth="380"
+                              promptText="Select Doctor" styleClass="form-combo"
+                              HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Step 2: Patient Info -->
+                <Label text="STEP 2 — PATIENT INFORMATION" styleClass="form-section-title"/>
+                <HBox spacing="14">
+                    <TextField fx:id="nameField" prefHeight="40" prefWidth="380"
+                               promptText="Full Name" styleClass="form-input"
+                               HBox.hgrow="ALWAYS"/>
+                    <TextField fx:id="genderField" prefHeight="40" prefWidth="380"
+                               promptText="Gender" styleClass="form-input"
+                               HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Step 3: Medical Details -->
+                <Label text="STEP 3 — MEDICAL DETAILS" styleClass="form-section-title"/>
+                <HBox spacing="14">
+                    <TextArea fx:id="issueField" prefHeight="110" prefWidth="253"
+                              promptText="Describe your issue" styleClass="form-textarea"
+                              wrapText="true" HBox.hgrow="ALWAYS"/>
+                    <TextArea fx:id="medicalHistoryField" prefHeight="110" prefWidth="253"
+                              promptText="Medical history" styleClass="form-textarea"
+                              wrapText="true" HBox.hgrow="ALWAYS"/>
+                    <TextArea fx:id="medicationsField" prefHeight="110" prefWidth="253"
+                              promptText="Current medications" styleClass="form-textarea"
+                              wrapText="true" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <!-- Submit -->
+                <HBox alignment="CENTER_RIGHT">
+                    <Button fx:id="requestButton" text="Request Appointment →"
+                            styleClass="btn-primary" prefHeight="42" prefWidth="220"
+                            onAction="#handleRequest"/>
+                </HBox>
+
+            </VBox>
+        </VBox>
+    </center>
+</BorderPane>

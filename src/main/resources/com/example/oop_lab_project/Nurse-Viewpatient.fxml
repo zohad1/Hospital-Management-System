@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="550.0" prefWidth="960.0" styleClass="dash-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.NurseViewPatientController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="55" styleClass="top-bar" spacing="14">
+            <Button fx:id="backButton" text="← Back" styleClass="btn-back" onAction="#handleBack"/>
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="My Patients" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <VBox styleClass="content-area" spacing="12">
+            <VBox spacing="4">
+                <Label text="Patient List" styleClass="section-label"/>
+                <Label text="All patients currently assigned to your ward"
+                       styleClass="section-sub"/>
+            </VBox>
+
+            <TableView fx:id="appointmentTable" styleClass="data-table" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="columnId" text="P-ID" prefWidth="65"/>
+                    <TableColumn fx:id="columnName" text="Name" prefWidth="100"/>
+                    <TableColumn fx:id="columnGender" text="Gender" prefWidth="70"/>
+                    <TableColumn fx:id="columnIssue" text="Issue" prefWidth="100"/>
+                    <TableColumn fx:id="columnMedicalHistory" text="Medical History" prefWidth="130"/>
+                    <TableColumn fx:id="columnMedications" text="Medications" prefWidth="115"/>
+                    <TableColumn fx:id="columnRoom" text="Room" prefWidth="65"/>
+                    <TableColumn fx:id="columnTime" text="Time" prefWidth="95"/>
+                    <TableColumn fx:id="columnStatus" text="Status" prefWidth="80"/>
+                    <TableColumn fx:id="columnWard" text="Ward" prefWidth="70"/>
+                    <TableColumn fx:id="columnBedNo" text="Bed No." prefWidth="75"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="492.0" prefWidth="829.0" styleClass="dash-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.ViewPerfomanceController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="55" styleClass="top-bar" spacing="14">
+            <Button fx:id="backButton" text="← Back" styleClass="btn-back" onAction="#handleBack"/>
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Performance Report" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <VBox styleClass="content-area" spacing="16">
+
+            <VBox spacing="4">
+                <Label text="Staff Performance" styleClass="section-label"/>
+                <Label text="Appointment activity overview" styleClass="section-sub"/>
+            </VBox>
+
+            <!-- Chart Card -->
+            <VBox styleClass="chart-card" VBox.vgrow="ALWAYS">
+                <LineChart fx:id="lineChart" VBox.vgrow="ALWAYS">
+                    <xAxis>
+                        <CategoryAxis fx:id="xAxis" side="BOTTOM"/>
+                    </xAxis>
+                    <yAxis>
+                        <NumberAxis fx:id="yAxis" side="LEFT"/>
+                    </yAxis>
+                </LineChart>
+            </VBox>
+
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,118 @@
+package com.example.oop_lab_project;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.sql.Connection;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet; // <-- Importing ResultSet
+import java.sql.SQLException;
+
+public class LoginFacultyController {
+
+    @FXML
+    private ComboBox<String> roleComboBox;
+    @FXML
+    private TextField usernameField;
+    @FXML
+    private PasswordField passwordField;
+
+    @FXML
+    private void initialize() {
+        roleComboBox.getItems().addAll("Admin", "Doctor", "Nurse");
+    }
+
+    @FXML
+    private void handleLogin(ActionEvent event) {
+        String role = roleComboBox.getValue();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+
+        if (role == null || username.isEmpty() || password.isEmpty()) {
+            showAlert(AlertType.ERROR, "Form Error!", "Please select a role and enter both username and password");
+            return;
+        }
+
+        String tableName = "";
+        String nextScene = "";
+
+        switch (role) {
+            case "Admin":
+                tableName = "admin_signup";
+                nextScene = "Main-Admin.fxml";
+                break;
+            case "Doctor":
+                tableName = "doctor_signup";
+                nextScene = "Main-Doc.fxml";
+                break;
+            case "Nurse":
+                tableName = "nurse_signup";
+                nextScene = "Nurse-Main.fxml";
+                break;
+        }
+
+        String query = "SELECT * FROM " + tableName + " WHERE username = ? AND password = ?";
+        try (Connection connection = connectDB(); PreparedStatement preparedStatement = connection.prepareStatement(query)) {
+            preparedStatement.setString(1, username);
+            preparedStatement.setString(2, password);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                switchScene(event, nextScene, role + " Dashboard");
+            } else {
+                showAlert(AlertType.ERROR, "Login Failed", "Invalid username or password");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            showAlert(AlertType.ERROR, "Database Error", "An error occurred while connecting to the database");
+        }
+    }
+
+    @FXML
+    private void handleSignUp(ActionEvent event) {
+        switchScene(event, "Sign_up_Faculty.fxml", "Faculty Sign Up");
+    }
+
+    @FXML
+    private void handleBack(ActionEvent event) {
+        switchScene(event, "login_signup_all.fxml", "Login/Signup");
+    }
+
+    private Connection connectDB() throws SQLException {
+        return Database.getConnection();
+    }
+
+    private void switchScene(ActionEvent event, String fxmlFile, String title) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
+            Parent root = loader.load();
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setTitle(title);
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (IOException e) {
+            showAlert(AlertType.ERROR, "Scene Switch Error", "An error occurred while switching scenes: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    private void showAlert(AlertType alertType, String title, String message) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
+    }
+}

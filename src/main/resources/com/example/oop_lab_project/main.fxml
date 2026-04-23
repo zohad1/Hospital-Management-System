@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="550.0" prefWidth="828.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.mainController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="60" styleClass="nav-bar" spacing="12">
+            <padding><Insets left="30" right="30"/></padding>
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Login" styleClass="nav-btn" onAction="#handleLogin"/>
+            <Button text="Sign Up" styleClass="nav-btn-accent" onAction="#handleSignup"/>
+        </HBox>
+    </top>
+
+    <!-- Hero Content -->
+    <center>
+        <VBox styleClass="hero-section" spacing="18" alignment="TOP_CENTER">
+            <Label text="Welcome to Shifa International" styleClass="hero-title"
+                   maxWidth="620" wrapText="true" textAlignment="CENTER"/>
+            <Label text="Hospital Management System" styleClass="hero-accent"/>
+            <Label text="A quaternary care healthcare facility offering quality services to local and international patient communities for over 30 years."
+                   styleClass="hero-subtitle" maxWidth="580" wrapText="true" textAlignment="CENTER"/>
+            <VBox styleClass="info-card" spacing="10" maxWidth="580">
+                <Label text="Why Choose Shifa?" styleClass="info-card-title"/>
+                <Label text="✔   Services under 1 roof" styleClass="feature-text"/>
+                <Label text="✔   Critical Care &amp; Emergency System" styleClass="feature-text"/>
+                <Label text="✔   Latest Medical Technologies" styleClass="feature-text"/>
+                <Label text="✔   Qualified Medical Professionals" styleClass="feature-text"/>
+            </VBox>
+        </VBox>
+    </center>
+
+    <!-- Footer -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" prefHeight="40" styleClass="footer-bar" spacing="10">
+            <padding><Insets left="30" right="30"/></padding>
+            <Label text="V1.0.0" styleClass="footer-text"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Powered by NovaNex" styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+</BorderPane>

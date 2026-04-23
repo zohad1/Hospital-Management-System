@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefWidth="420.0" styleClass="card-popup" spacing="14"
+      xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.oop_lab_project.CardDetailsController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Header -->
+    <HBox alignment="CENTER_LEFT" spacing="10">
+        <Label text="✚" style="-fx-font-size: 22px; -fx-text-fill: #0D9488;"/>
+        <VBox spacing="2">
+            <Label text="Confirm Your Payment" styleClass="card-popup-title"/>
+            <Label text="Enter your card details to confirm the appointment"
+                   styleClass="card-popup-sub"/>
+        </VBox>
+    </HBox>
+
+    <!-- Divider -->
+    <Region prefHeight="1" maxWidth="1e9"
+            style="-fx-background-color: #E5E7EB; -fx-min-height: 1; -fx-max-height: 1;"/>
+
+    <!-- Card Fields -->
+    <VBox spacing="6">
+        <Label text="Card Number" styleClass="field-label"/>
+        <TextField fx:id="cardNumberField" prefHeight="42" prefWidth="350"
+                   promptText="1234  5678  9012  3456" styleClass="form-input"/>
+    </VBox>
+
+    <HBox spacing="14">
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="Expiry Date" styleClass="field-label"/>
+            <TextField fx:id="expiryField" prefHeight="42" prefWidth="160"
+                       promptText="MM/YY" styleClass="form-input"/>
+        </VBox>
+        <VBox spacing="6" HBox.hgrow="ALWAYS">
+            <Label text="CVV" styleClass="field-label"/>
+            <TextField fx:id="cvvField" prefHeight="42" prefWidth="160"
+                       promptText="•••" styleClass="form-input"/>
+        </VBox>
+    </HBox>
+
+    <Region prefHeight="4"/>
+
+    <!-- Confirm Button -->
+    <Button fx:id="confirmButton" text="Confirm Appointment"
+            styleClass="btn-primary" prefHeight="44" maxWidth="1e9"
+            onAction="#handleConfirm"/>
+
+</VBox>

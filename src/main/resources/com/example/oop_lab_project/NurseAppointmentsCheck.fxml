@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="550.0" prefWidth="960.0" styleClass="dash-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.NurseAppointmentsCheckController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Header -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="55" styleClass="top-bar" spacing="14">
+            <Button text="← Back" styleClass="btn-back"/>
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Doctor Overview" styleClass="page-title"/>
+        </HBox>
+    </top>
+
+    <!-- Content -->
+    <center>
+        <VBox styleClass="content-area" spacing="12">
+            <VBox spacing="4">
+                <Label text="Doctor Directory" styleClass="section-label"/>
+                <Label text="All doctors currently registered in the system"
+                       styleClass="section-sub"/>
+            </VBox>
+
+            <TableView styleClass="data-table" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn text="ID" prefWidth="65"/>
+                    <TableColumn text="Name" prefWidth="120"/>
+                    <TableColumn text="Department" prefWidth="120"/>
+                    <TableColumn text="Patient" prefWidth="110"/>
+                    <TableColumn text="Schedule" prefWidth="110"/>
+                    <TableColumn text="Status" prefWidth="80"/>
+                    <TableColumn text="Gender" prefWidth="75"/>
+                    <TableColumn text="Username" prefWidth="110"/>
+                    <TableColumn text="Room" prefWidth="70"/>
+                    <TableColumn text="Contact" prefWidth="100"/>
+                    <TableColumn text="Verification" prefWidth="90"/>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+</BorderPane>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.TilePane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="478.0" prefWidth="686.0" styleClass="dash-root"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.oop_lab_project.NurseMainController">
+    <stylesheets>
+        <URL value="@styles.css"/>
+    </stylesheets>
+
+    <!-- Top Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" prefHeight="60" styleClass="top-bar" spacing="14">
+            <Label text="✚  MedicusPro" styleClass="nav-brand"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="Nurse" styleClass="top-bar-role"/>
+            <Label text="|" styleClass="top-bar-sep"/>
+            <Button text="Log Out" styleClass="btn-logout" onAction="#handleLogOut"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content -->
+    <center>
+        <VBox styleClass="dash-content" spacing="24">
+
+            <!-- Welcome Header -->
+            <VBox spacing="4">
+                <Label text="Nurse Dashboard" styleClass="dash-welcome-title"/>
+                <Label text="Monitor patients and manage ward assignments"
+                       styleClass="dash-welcome-sub"/>
+            </VBox>
+
+            <!-- Divider -->
+            <Region styleClass="dash-divider" maxWidth="1e9"/>
+
+            <!-- Action Cards -->
+            <TilePane alignment="CENTER" hgap="24" vgap="20" prefColumns="2">
+
+                <Button fx:id="viewPatientsButton" onAction="#handleViewPatients"
+                        styleClass="dash-card" prefWidth="230" prefHeight="165"
+                        contentDisplay="GRAPHIC_ONLY">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="10" prefWidth="190">
+                            <Label text="&#128100;" styleClass="dash-card-icon"/>
+                            <Label text="View Patients" styleClass="dash-card-title"
+                                   maxWidth="170" wrapText="true" textAlignment="CENTER"/>
+                            <Label text="Monitor patient status and info"
+                                   styleClass="dash-card-desc" maxWidth="170" wrapText="true"
+                                   textAlignment="CENTER"/>
+                        </VBox>
+                    </graphic>
+                </Button>
+
+                <Button fx:id="manageWardsButton" onAction="#handleManageWards"
+                        styleClass="dash-card" prefWidth="230" prefHeight="165"
+                        contentDisplay="GRAPHIC_ONLY">
+                    <graphic>
+                        <VBox alignment="CENTER" spacing="10" prefWidth="190">
+                            <Label text="&#128719;" styleClass="dash-card-icon"/>
+                            <Label text="Manage Wards" styleClass="dash-card-title"
+                                   maxWidth="170" wrapText="true" textAlignment="CENTER"/>
+                            <Label text="Assign and manage ward placements"
+                                   styleClass="dash-card-desc" maxWidth="170" wrapText="true"
+                                   textAlignment="CENTER"/>
+                        </VBox>
+                    </graphic>
+                </Button>
+
+            </TilePane>
+        </VBox>
+    </center>
+</BorderPane>
