@@ -110,11 +110,6 @@ src/main/
 
 > Credentials are stored in the MySQL database. New patients can register via the **Sign Up** screen.
 
----
-
-## 📸 Screenshots
-
-> *Coming soon — add screenshots here to showcase the UI.*
 
 ---
 
